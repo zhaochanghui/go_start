@@ -1,0 +1,6 @@
+.idea
+.idea/*
+android/app/build/*
+node_modules
+node_modules/*
+android/app/my-release-key.keystore
