@@ -1,0 +1,108 @@
+2018-11-29
+
+Golang教程：（一）介绍和安装
+
+这是本Golang系列教程的第一篇。
+什么是Golang
+
+Golang 又称为 Go，是由 Google 开发的一种开源的、编译型的、静态类型的编程语言。
+
+
+Golang 的主要目的是使开发高可用性和高扩展性的Web应用程序变得简单。
+为什么选择Golang
+
+
+为什么应该选择 Golang 作为服务器端的开发语言，而不是可以做同样事情的 python，ruby，nodejs 等其他语言？
+
+
+下面是选择 Go 的一些好处：
+
+
+    Go原生支持并发（Concurrency），因此非常适合编写多线程程序。这是通过Go协程（Goroutine）和信道（Channel）实现的，我们将在以后的教程中讨论它们。
+    Golang 是编译型语言。源代码会被编译成可执行的本地二进制（Native binary）文件。这是解释型语言（比如在nodejs中使用的Javascript）无法做到的。
+    语言规范相当简单。整个规范只有一页，你甚至可以根据它写出自己的 Go 编译器：）
+    Go 编译器支持静态链接。所有的代码可以被链接成一个“肥大”的二进制文件，因此可以很简单的将它部署到云服务器而不必担心依赖问题。
+
+
+安装
+
+
+Golang支持所有三种平台：Mac，Windows 和 Linux。你可以在 https://golang.org/dl/ 下载相应平台的二进制文件。
+Mac OS
+
+
+在 https://golang.org/dl/ 下载 OS X installer。双击运行，按照提示安装即可。Golang 会被安装在 /usr/local/go 目录下，并且 /usr/local/go/bin 目录会被添加到环境变量 PATH 中。
+Windows
+
+
+在 https://golang.org/dl/ 下载 MSI installer。双击运行，按照提示安装即可。Golang 会被安装在 C:\Go 目录下，并且 C:\Go\bin 会被添加到环境变量 PATH 中。
+Linux
+
+
+方法一：使用二进制文件安装 (推荐)
+
+
+1、下载二进制文件
+wget https://storage.googleapis.com/golang/go1.7.3.linux-amd64.tar.gz
+
+
+2、解压并创建工作目录
+tar -zxf go1.7.3.linux-amd64.tar.gz -C /usr/local/
+mkdir /Golang
+
+
+3、设置环境变量
+sudo vim /etc/profile.d/go.sh
+输入内容
+export PATH=$PATH:/usr/local/go/bin
+:wq  保存退出
+source /etc/profile.d/go.sh
+
+
+添加GOPATH目录
+创建工作目录
+mkdir -p ~/dev/go
+
+
+vim /etc/profile.d/gopath.sh
+export GOPATH=/miaoweiye/dev/go
+:wq  保存退出
+source /etc/profile.d/gopath.sh
+
+
+4、测试
+package main
+
+
+import "fmt"
+
+
+func main() {
+fmt.Println("hello, world")
+}
+
+
+5、查看安装
+go version
+
+
+方法二：使用 yum 安装
+
+
+1、先安装EPEL源
+yum install epel -y
+
+
+2、使用yum安装Golang
+yum install go -y
+
+3、环境变量
+在 /etc/profile 添加：
+
+export GOPATH=/var/www/html
+export PATH=$PATH:$GOPATH/bin
+
+4、刷新环境变量
+source /etc/profile
+
+原文：https://blog.csdn.net/miaoweiye/article/details/79241299

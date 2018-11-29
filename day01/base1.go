@@ -2,13 +2,19 @@ package main
 
 import "fmt"
 
+const name = "abc"
+var aa = "abc"
+var bb = 99
+var cc bool
+
 func main()  {
-	var a uint32 =99999
-	var b int64 = -9999929999999
-	var c  float32 = -9999.99
-	fmt.Println(a)
+	var a int =10
+	fmt.Printf("%d \n",a)
+	var b=10
 	fmt.Println(b)
-	fmt.Println(c)
+	c:=10111
+	fmt.Printf("%d\n",c)
+	println(aa,bb,cc)
 }
 
 
